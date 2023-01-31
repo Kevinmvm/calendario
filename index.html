@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./style/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>Pràctica 1</title>
+</head>
+
+<body>
+    <h2>Lista de Objetivos</h2>
+	<label for="inputNuevaTarea">Nuevo Objetivo: </label>
+	<input type="text" id="inputNuevaTarea">
+	<ul id="contenedorTareas"></ul>
+
+    <form action="/my-handling-form-page" method="post">
+        <ul id="formulario">
+            <li>
+                <label for="name">Lunes:</label>
+                <input type="number" id="lunes" name="user_name" value="0" min="0" max="24">
+            </li>
+            <li>
+                <label for="surname">Martes:</label>
+                <input type="number" id="martes" name="user_name" value="0" min="0" max="24">
+            </li>
+            <li>
+                <label for="date">Miercoles:</label>
+                <input type="number" id="miercoles" name="user_name" value="0" min="0" max="24">
+            </li>
+            <li>
+                <label for="name">Jueves:</label>
+                <input type="number" id="jueves" name="user_name" value="0" min="0" max="24">
+            </li>
+            <li>
+                <label for="surname">Viernes:</label>
+                <input type="number" id="viernes" name="user_name" value="0" min="0" max="24">
+            </li>
+            <li>
+                <label for="date">Sabado:</label>
+                <input type="number" id="sabado" name="user_name" value="0" min="0" max="24">
+            </li>
+            <li>
+                <label for="date">Domingo:</label>
+                <input type="number" id="domingo" name="user_name" value="0" min="0" max="24">
+            </li>
+        </ul>
+    </form>
+
+    <h3>Cantidad de semanas</h3>
+	<label for="inputSemanas">Indica la cantidad de semanas a realizar este objetivo: </label>
+	<input type="text" id="inputSemanas">
+	<ul id="contenedorSemanas"></ul>
+
+    <button onclick="store()" type="button">Guardar</button>
+
+    <button onclick="del()" type="button">Borrar</button>
+
+</body>
+
+<script type="text/javascript">
+    //Programa para registrar un trabajo que se quiere hacer en calendario.
+    //Cargar el calendario
+    //Poner que dias quieres realizar el trabajo y las horas que se le va a dedicar por dia. 
+    //Fecha de inicio: cuando se registre el objetivo.
+    //Indicar fecha de fin cuando acabará el objetivo.
+    function store() {
+        let inputLunes = document.getElementById("lunes");
+        let inputMartes = document.getElementById("martes");
+        let inputMiercoles = document.getElementById("miercoles");
+        let inputJueves = document.getElementById("jueves");
+        let inputViernes = document.getElementById("viernes");
+        let inputSabado = document.getElementById("sabado");
+        let inputDomingo = document.getElementById("domingo");
+        localStorage.setItem("name", inputLunes.value);
+        localStorage.setItem("surname", inputMartes.value);
+        localStorage.setItem("birthay", inputMiercoles.value);
+        localStorage.setItem("name", inputJueves.value);
+        localStorage.setItem("name", inputViernes.value);
+        localStorage.setItem("name", inputSabado.value);
+        localStorage.setItem("name", inputDomingo.value);
+        
+        let hoursWeek = 10000000;
+        let start = new Date(); // comienza a medir el tiempo (valor inicial)
+        // la función hace su trabajo
+        for (let i = 0; i < hoursWeek; i++) {
+            let doSomething = i * i * i;
+        }
+
+        let end = new Date(); // termina de medir el tiempo (valor final)
+
+        alert(`El tiempo transcurrido es de ${end - start} ms`);
+
+    }
+
+    function del() {
+        localStorage.removeItem("name");
+        localStorage.removeItem("surname");
+        localStorage.removeItem("birthay");
+    }
+
+
+
+    const $contenedorTareas = document.querySelector("#contenedorTareas"),
+		$btnGuardarTarea = document.querySelector("#btnAgregarTarea"),
+		$inputNuevaTarea = document.querySelector("#inputNuevaTarea");
+
+
+
+</script>
+
+</html>
